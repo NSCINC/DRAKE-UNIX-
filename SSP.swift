@@ -1,9 +1,12 @@
+// DRAKE-UNIX Unified Kernel with SSPP MT2 Output
+// Package import for SQLite.swift
 .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.12.0")
+
 import Foundation
 import SQLite
 
 // Define your database connection
-let db: Connection?
+var db: Connection?
 
 // Define table and column structures
 let users = Table("Users")
@@ -63,16 +66,36 @@ func createTables() {
     }
 }
 
-// Main function to run the application
+// Unified function to process and output SSPP MT2 storage
+func unifiedKernelOutput() {
+    do {
+        // Simulating the unification of all storages into a single SSPP MT2 output
+        let unifiedData = try db?.scalar("SELECT * FROM ServerData, LogData")
+        print("Unified Output for SSPP MT2: \(String(describing: unifiedData))")
+        
+        // Here, we would export this unified data to a specific storage or cache for SSPP MT2
+        let filePath = "/tmp/drake_unix_sspp_output.txt"
+        try "\(String(describing: unifiedData))".write(toFile: filePath, atomically: true, encoding: .utf8)
+        print("Unified output written to SSPP MT2 file at \(filePath)")
+        
+    } catch {
+        print("Error during unification: \(error)")
+    }
+}
+
+// Main function to run the DRAKE-UNIX system
 func main() {
     do {
         // Open or create the database
-        let path = "apollo_holofi.db"
+        let path = "drake_unix_holofi.db"
         db = try Connection(path)
         print("Opened database successfully")
         
-        // Create the tables
+        // Create the necessary tables
         createTables()
+        
+        // Execute the unified kernel output function
+        unifiedKernelOutput()
 
     } catch {
         print("Can't open database: \(error)")

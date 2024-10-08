@@ -1,64 +1,72 @@
-import java.io.File;
-import java.io.IOException;
+import Foundation
 
-public class CCompiler {
-    private static final String COMPILE_COMMAND = "gcc"; // Compilation command
-    private static final String OUTPUT_NAME = "output_program"; // Final program name
-    private static final String TERMINAL_COMMAND = "abc"; // Fictional command to run the program
+let compileCommand = "gcc" // Comando de compilação
+let outputName = "output_program" // Nome do programa final
+let terminalCommand = "abc" // Comando fictício para executar o programa
 
-    // Method to compile all .c files in the current directory
-    public static void compileAllCFiles() {
-        StringBuilder compileCmd = new StringBuilder(COMPILE_COMMAND + " -o " + OUTPUT_NAME + " ");
-
-        // Get the current directory
-        File currentDir = new File(".");
-
-        // List all files in the current directory
-        File[] files = currentDir.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                // If the file ends with .c, add it to the compile command
-                if (file.isFile() && file.getName().endsWith(".c")) {
-                    compileCmd.append(file.getName()).append(" ");
-                }
-            }
-        }
-
-        // Execute the compilation command
-        System.out.println("Compiling with command: " + compileCmd);
-        try {
-            Process compileProcess = Runtime.getRuntime().exec(compileCmd.toString().trim());
-            int exitCode = compileProcess.waitFor();
-            if (exitCode != 0) {
-                throw new IOException("Compilation failed.");
-            }
-            System.out.println("Compilation successful!");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
-
-    // Method to run the compiled program using the terminal "abc"
-    public static void runProgramWithABC() {
-        String runCmd = TERMINAL_COMMAND + " ./" + OUTPUT_NAME;
+// Função para compilar todos os arquivos .c no diretório atual
+func compileAllCFiles() {
+    var compileCmd = "\(compileCommand) -o \(outputName) "
+    
+    // Obter o diretório atual
+    let currentDir = FileManager.default.currentDirectoryPath
+    
+    do {
+        // Listar todos os arquivos no diretório atual
+        let files = try FileManager.default.contentsOfDirectory(atPath: currentDir)
         
-        // Execute the program
-        System.out.println("Executing the program with terminal '" + TERMINAL_COMMAND + "': " + runCmd);
-        try {
-            Process runProcess = Runtime.getRuntime().exec(runCmd);
-            int exitCode = runProcess.waitFor();
-            if (exitCode != 0) {
-                throw new IOException("Execution failed.");
+        // Adicionar arquivos .c ao comando de compilação
+        for file in files {
+            if file.hasSuffix(".c") {
+                compileCmd.append("\(file) ")
             }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            System.exit(1);
         }
-    }
-
-    public static void main(String[] args) {
-        compileAllCFiles();  // Compile all .c files
-        runProgramWithABC(); // Run the program with the fictional terminal command "abc"
+        
+        // Executar o comando de compilação
+        print("Compiling with command: \(compileCmd)")
+        let compileProcess = Process()
+        compileProcess.launchPath = "/bin/bash"
+        compileProcess.arguments = ["-c", compileCmd]
+        
+        compileProcess.launch()
+        compileProcess.waitUntilExit()
+        
+        if compileProcess.terminationStatus != 0 {
+            print("Compilation failed.")
+            exit(1)
+        }
+        
+        print("Compilation successful!")
+        
+    } catch {
+        print("Error accessing directory: \(error.localizedDescription)")
+        exit(1)
     }
 }
+
+// Função para executar o programa compilado usando o terminal fictício "abc"
+func runProgramWithABC() {
+    let runCmd = "\(terminalCommand) ./\(outputName)"
+    
+    // Executar o programa
+    print("Executing the program with terminal '\(terminalCommand)': \(runCmd)")
+    let runProcess = Process()
+    runProcess.launchPath = "/bin/bash"
+    runProcess.arguments = ["-c", runCmd]
+    
+    runProcess.launch()
+    runProcess.waitUntilExit()
+    
+    if runProcess.terminationStatus != 0 {
+        print("Execution failed.")
+        exit(1)
+    }
+}
+
+func main() {
+    compileAllCFiles()  // Compilar todos os arquivos .c
+    runProgramWithABC() // Executar o programa com o comando fictício "abc"
+}
+
+// Chamar a função principal
+main()
