@@ -30,19 +30,12 @@ class InvestmentPlanManager {
         // Verifica se é necessário aumentar a capacidade
         if count >= capacity {
             capacity *= 2 // Dobra a capacidade
-            plans.resize(newCapacity: capacity)
+            plans += Array(repeating: InvestmentPlan(planName: "", initialInvestment: 0, monthlyReturn: 0, annualReturn: 0, netAnnualReturn: 0, slots: 0), count: capacity - plans.count)
         }
-        
+
         // Adiciona o novo plano
         plans[count] = InvestmentPlan(planName: planName, initialInvestment: initialInvestment, monthlyReturn: monthlyReturn, annualReturn: annualReturn, netAnnualReturn: netAnnualReturn, slots: slots)
         count += 1 // Incrementa a contagem de planos
-    }
-}
-
-// Extensão para redimensionar o array de planos
-extension Array where Element == InvestmentPlan {
-    mutating func resize(newCapacity: Int) {
-        self += Array(repeating: InvestmentPlan(planName: "", initialInvestment: 0, monthlyReturn: 0, annualReturn: 0, netAnnualReturn: 0, slots: 0), count: newCapacity - count)
     }
 }
 
