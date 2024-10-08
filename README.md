@@ -1,18 +1,23 @@
 🦅 Drake UNIX DApp 🦅
 🌌 Technologies Utilized
-C: Core components development, ensuring efficient performance.
-Bash: Scripting for automation and system integration.
-Python: For backend processing and data manipulation.
-Go: Building scalable services and handling concurrent tasks.
-PostgreSQL: Robust relational database for efficient data storage and management.
-Docker: Containerizing applications for consistency across environments.
-GraphQL: Streamlining API interactions and enhancing data retrieval.
-React: Creating interactive and responsive user interfaces.
-Material UI: Utilizing a React component library for cohesive styling.
-Rubyx: Scripting and building supportive tools for optimized workflows.
-WFIT: Implementing functionalities for fitness and wellness tracking.
-Swift: Developing powerful applications for Apple platforms. 🍏
-🌟 Programming Languages Used
+## 🌟 Programming Languages Used
+
+![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-FFD43B?style=flat&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-8CC84B?style=flat&logo=node.js&logoColor=white)
+![Shell](https://img.shields.io/badge/Shell-4EAA25?style=flat&logo=gnu-bash&logoColor=white)
+![Rubyx](https://img.shields.io/badge/Rubyx-CC342D?style=flat&logo=ruby&logoColor=white)
+![Lua](https://img.shields.io/badge/Lua-2C2D72?style=flat&logo=lua&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
+![ABC](https://img.shields.io/badge/ABC-000000?style=flat&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat&logo=graphql&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Material UI](https://img.shields.io/badge/Material%20UI-0081CB?style=flat&logo=materialui&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white) 🍏
 
 
 🍏
