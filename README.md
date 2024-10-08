@@ -1,4 +1,4 @@
-🦅 Drake UNIX DApp 🦅
+🍄 Drake UNIX DApp 🍄
 🌌 Technologies Utilized
 ## 🌟 Programming Languages Used
 
@@ -56,5 +56,5 @@ Ensure each component is well-documented in its respective directory.
 Add any specific commands or scripts that are relevant to the setup and running of the project.
 If applicable, include instructions on how to contribute or report issues with the project.
 ✉️ Contact
-For further information, contributions, or inquiries, please contact the project maintainers via the project's GitHub page.
+For further information, contributions, or inquiries, please contact the project maintainers via the project's GitHub page. 🦅
 
